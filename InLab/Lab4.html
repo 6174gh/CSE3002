@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <h1>BSNL</h1>
+        <form>
+            <label>
+                Caculate charges for your data usage <br><br>
+                <input id="data" placeholder="Enter data usage in MBs">
+            </label>
+            
+            <button id="button" type="button" onclick="calculateDataUsage()">Calculate</button>
+        </form>
+        <script>
+            function calculateDataUsage(){
+                document.getElementById("data").innerHTML = data;
+                var base = 0;
+                var total = 0;
+                if(data<=240){
+                    base = 35;
+                    total = base;
+                }
+                else if (data<=1000){
+                    base = 140;
+                    if(data>300){
+                        total = base + (data-300)*0.3
+                    }
+                }
+                else if (data<=2000){
+                    base = 240;
+                    if(data>1600){
+                        total = base + (data-1600)*0.5
+                    }
+                }
+                else{
+                    base = 790;
+                    if(data>2900){
+                        total = base + (data-2900)*0.3
+                    }
+                }
+                document.alert(total);
+            }
+        </script>
+    </body>
+</html>
